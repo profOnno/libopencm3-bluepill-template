@@ -1,10 +1,10 @@
 PROJECT = awesomesauce
 BUILD_DIR = bin
 
-SHARED_DIR = ../my-common-code
+#SHARED_DIR = ../my-common-code
 CFILES = my-project.c
-CFILES += api.c
-AFILES += api-asm.S
+CFILES += ../my-common-code/api.c
+#AFILES += ../my-common-code/api-asm.S
 
 # TODO - you will need to edit these two lines!
 DEVICE=stm32f407vgt6
