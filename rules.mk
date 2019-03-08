@@ -139,11 +139,12 @@ $(BUILD_DIR)/%.o: %.S
 
 $(PROJECT).elf: $(OBJS) $(LDSCRIPT) $(LIBDEPS)
 	@printf "  LD\t$@\n"
-	$(Q)$(LD) $(TGT_LDFLAGS) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $@
+	@mkdir -p $(dir $@)$(TARGET_DIR)
+	$(Q)$(LD) $(TGT_LDFLAGS) $(LDFLAGS) $(OBJS) $(LDLIBS) -o $(TARGET_DIR)/$@
 
 %.bin: %.elf
 	@printf "  OBJCOPY\t$@\n"
-	$(Q)$(OBJCOPY) -O binary  $< $@
+	$(Q)$(OBJCOPY) -O binary  $(TARGET_DIR)/$< $(TARGET_DIR)/$@
 
 %.lss: %.elf
 	$(OBJDUMP) -h -S $< > $@
@@ -167,7 +168,7 @@ else
 endif
 
 clean:
-	rm -rf $(BUILD_DIR) $(GENERATED_BINS)
+	rm -rf $(BUILD_DIR) $(TARGET_DIR) $(GENERATED_BINS)
 
 .PHONY: all clean flash
 -include $(OBJS:.o=.d)
