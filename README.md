@@ -8,9 +8,12 @@ Easy "clone and go" repository for a libopencm3 based project.
  5. make -C src
 
 # Directories
-* out contains linked binairy (when compile and link succeeded)
+* out contains linked binary (when compile and link succeeded)
 * src contains src code
 
-# As a template
+# Template
+This template has a blinky start using systick. USART3 is enabled, for traceoutput using printf
+
+## You
 You should replace this with your _own_ README if you are using this
 as a template.
