@@ -12,7 +12,7 @@ Easy "clone and go" repository for a libopencm3 based project.
 * src contains src code
 
 # Template
-This template has a blinky start using systick. USART3 is enabled, for traceoutput using printf
+This template has a blinky start using systick. USART3 is enabled, for trace output using printf
 
 ## You
 You should replace this with your _own_ README if you are using this
