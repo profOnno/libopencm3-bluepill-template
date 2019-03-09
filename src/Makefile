@@ -8,13 +8,17 @@ CFILES = main.c
 #AFILES += ../my-common-code/api-asm.S
 
 # TODO - you will need to edit these two lines!
-DEVICE=stm32f103h6
-#OOCD_FILE = board/stm32f4discovery.cfg
+DEVICE = stm32f103h6
+
+#ARCH_FLAGS = -mthumb -mcpu=cortex-m3 -mfloat-abi=softfp --mfix-cortex-m3-ldrd
 
 # You shouldn't have to edit anything below here.
 #VPATH += $(SHARED_DIR)
 #INCLUDES += $(patsubst %,-I%, . $(SHARED_DIR))
-OPENCM3_DIR=../libopencm3
+OPENCM3_DIR = ../libopencm3
+
+# enable floating point printf
+LDFLAGS += -u _printf_float
 
 include $(OPENCM3_DIR)/mk/genlink-config.mk
 include ../rules.mk

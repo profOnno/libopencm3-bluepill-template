@@ -87,12 +87,15 @@ int _write(int file, char *ptr, int len)
 
 int main(void)
 {
+  float test = 1.1234f;
   clock_setup();
   gpio_setup();
   usart_setup();
 
-  printf("bluepill started\r\n");
+  printf("\r\nbluepill template3 started\r\n");
+  printf("test float (1.234f) using %%.3f: %.3f \r\n", test);
 
   while(1) {
+    __asm__("nop");
   }
 }
